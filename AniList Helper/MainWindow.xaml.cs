@@ -2,6 +2,7 @@
 using GraphQL.Client;
 using GraphQL.Common.Request;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
@@ -80,53 +81,152 @@ namespace AniList_Helper
         isMediaSpoiler
         isAdult
     }
-    characters {
-        edges {
-            node {
-                id
-                name {
-                    first
-                    last
-                    native
-                    alternative
-                }
-                image {
-                    large
-                    medium
-                }
-                description
-                siteUrl
-            }
-            id
-            role
-            voiceActors {
-                id
-                name {
-                    first
-                    last
-                    native
-                }
-                language
-                image {
-                    large
-                    medium
-                }
-                description
-                isFavourite
-                siteUrl
-            }
-            favouriteOrder
+    isFavourite
+    isAdult
+    nextAiringEpisode {
+        id
+        airingAt
+        timeUntilAiring
+        episode
+        mediaId
+    }
+    externalLinks {
+        id
+        url
+        site
+    }
+    streamingEpisodes {
+        title
+        thumbnail
+        url
+        site
+    }
+    rankings {
+        id
+        rank
+        type
+        format
+        year
+        season
+        allTime
+        context
+    }
+    mediaListEntry {
+        id
+        userId
+        mediaId
+        status
+        score
+        progress
+        progressVolumes
+        repeat
+        priority
+        private
+        notes
+        hiddenFromStatusLists
+        customLists
+        advancedScores
+        startedAt {
+            year
+            month
+            day
         }
-        pageInfo {
-            total
-            perPage
-            currentPage
-            lastPage
-            hasNextPage
+        completedAt {
+            year
+            month
+            day
+        }
+        updatedAt
+        createdAt
+    }
+    stats {
+        scoreDistribution {
+            score
+            amount
+        }
+        statusDistribution {
+            status
+            amount
+        }
+        airingProgression {
+            episode
+            score
+            watching
         }
     }
+    siteUrl
+    autoCreateForumThread
+    modNotes
   }
 }";
+
+            var charactersQuery = @"query ($id: Int) {
+  Media (id: $id, type: ANIME) {
+     characters {
+           edges {
+               node {
+                   id
+                   name {
+                       first
+                       last
+                       native
+                       alternative
+                   }
+                   image {
+                       large
+                       medium
+                   }
+                   description
+                   siteUrl
+               }
+               id
+               role
+               voiceActors {
+                   id
+                   name {
+                       first
+                       last
+                       native
+                   }
+                   language
+                   image {
+                       large
+                       medium
+                   }
+                   description
+                   isFavourite
+                   siteUrl
+               }
+               favouriteOrder
+           }
+            nodes {
+                   id
+                   name {
+                       first
+                       last
+                       native
+                       alternative
+                   }
+                   image {
+                       large
+                       medium
+                   }
+                   description
+                   siteUrl
+               }
+           pageInfo {
+               total
+               perPage
+               currentPage
+               lastPage
+               hasNextPage
+           }
+        }
+    }
+}";
+
+            var staffQuery = @"";
+            var studiosQuery = @"";
             
 
             var variables = new
@@ -142,7 +242,22 @@ namespace AniList_Helper
 
             var errors = graphQLResponse.Errors;
             var romanjiTitle = graphQLResponse.Data.Media.title.romaji.Value;
+
             var test = graphQLResponse.GetDataFieldAs<Media>("Media");
+
+            /*
+            var aniListRequest2 = new GraphQLRequest();
+            var variables2 = new
+            {
+                id = 21459
+            };
+            aniListRequest2.Query = charactersQuery;
+            aniListRequest2.Variables = variables2;
+            var graphQLClient2 = new GraphQLClient("https://graphql.anilist.co");
+            var graphQLResponse2 = await graphQLClient2.PostAsync(aniListRequest2);
+            var test2 = graphQLResponse2.Data.Media.characters.nodes;
+            var test3 = graphQLResponse2.GetDataFieldAs<Character>("nodes");
+            */
 
             //File.WriteAllText(test.Id + ".json", JsonConvert.SerializeObject(test, Formatting.Indented));
 

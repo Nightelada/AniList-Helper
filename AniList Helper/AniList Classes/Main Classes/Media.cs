@@ -35,6 +35,16 @@ namespace AniList_Helper.AniList_Classes.Main_Classes
         public int Popularity { get; set; }
         public int Trending { get; set; }
         public List<MediaTag> Tags { get; set; }
-
+        public bool IsFavourite { get; set; }
+        public bool IsAdult { get; set; }
+        public AiringSchedule NextAiringEpisode { get; set; }
+        public List<MediaExtrenalLink> ExternalLinks { get; set; }
+        public List<MediaStreamingEpisode> StreamingEpisodes { get; set; }
+        public List<MediaRank> Rankings { get; set; }
+        public MediaList MediaListEntry { get; set; }
+        public MediaStats Stats { get; set; }
+        public string SiteUrl { get; set; }
+        public bool AutoCreateForumThread { get; set; }
+        public string ModNotes { get; set; }
     }
 }

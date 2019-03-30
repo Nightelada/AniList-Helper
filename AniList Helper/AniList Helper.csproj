@@ -111,16 +111,36 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="AniList Classes\Enums\MediaFormat.cs" />
+    <Compile Include="AniList Classes\Enums\MediaListStatus.cs" />
+    <Compile Include="AniList Classes\Enums\MediaRankType.cs" />
     <Compile Include="AniList Classes\Enums\MediaSeason.cs" />
     <Compile Include="AniList Classes\Enums\MediaSource.cs" />
     <Compile Include="AniList Classes\Enums\MediaStatus.cs" />
     <Compile Include="AniList Classes\Enums\MediaType.cs" />
+    <Compile Include="AniList Classes\Enums\StaffLanguage.cs" />
+    <Compile Include="AniList Classes\Helper Classes\AiringProgression.cs" />
+    <Compile Include="AniList Classes\Helper Classes\CharacterImage.cs" />
+    <Compile Include="AniList Classes\Helper Classes\CharacterName.cs" />
     <Compile Include="AniList Classes\Helper Classes\FuzzyDate.cs" />
     <Compile Include="AniList Classes\Helper Classes\MediaCoverImage.cs" />
+    <Compile Include="AniList Classes\Helper Classes\MediaExtrenalLink.cs" />
+    <Compile Include="AniList Classes\Helper Classes\MediaRank.cs" />
+    <Compile Include="AniList Classes\Helper Classes\MediaStats.cs" />
+    <Compile Include="AniList Classes\Helper Classes\MediaStreamingEpisode.cs" />
     <Compile Include="AniList Classes\Helper Classes\MediaTag.cs" />
     <Compile Include="AniList Classes\Helper Classes\MediaTitle.cs" />
     <Compile Include="AniList Classes\Helper Classes\MediaTrailer.cs" />
+    <Compile Include="AniList Classes\Helper Classes\ScoreDistribution.cs" />
+    <Compile Include="AniList Classes\Helper Classes\StaffImage.cs" />
+    <Compile Include="AniList Classes\Helper Classes\StaffName.cs" />
+    <Compile Include="AniList Classes\Helper Classes\StatusDistribution.cs" />
+    <Compile Include="AniList Classes\Main Classes\AiringSchedule.cs" />
+    <Compile Include="AniList Classes\Main Classes\Character.cs" />
     <Compile Include="AniList Classes\Main Classes\Media.cs" />
+    <Compile Include="AniList Classes\Main Classes\MediaList.cs" />
+    <Compile Include="AniList Classes\Main Classes\MediaTrend.cs" />
+    <Compile Include="AniList Classes\Main Classes\Staff.cs" />
+    <Compile Include="AniList Classes\Main Classes\Studio.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
